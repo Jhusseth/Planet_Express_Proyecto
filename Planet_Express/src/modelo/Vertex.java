@@ -6,8 +6,8 @@ public class Vertex<E> implements Comparable<Vertex<E>> {
 	private E data;
 	
 	public Vertex(E data) {
-		this.location = 0;
 		this.data = data;
+		++location;
 	}
 
 	public int getLocation() {

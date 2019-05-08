@@ -13,16 +13,8 @@ public class Edge<E> implements Comparable<Edge<E>> {
 		this.ini = ini;
 		this.end = end;
 		this.weight = weight;
-		this.locate = 0;
+		++locate; 
 	}
-	
-	public Edge(Vertex<E> ini, Vertex<E> end){
-		this.ini = ini;
-		this.end = end;
-		this.weight = 0;
-		this.locate = 0;
-	}
-
 
 	public Vertex<E> getIni() {
 		return ini;

@@ -17,7 +17,9 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 	
 	@Override
 	public boolean existEdge(E v1, E v2){
-		Node<E> actual = graph[0];
+		Vertex<E> v = new Vertex<E>(v1);
+		Node<E> actual = graph[v.getLocation()];
+		
 		while(actual != null){
 			if(actual.getVertex() == v2) {
 				return true;
@@ -30,15 +32,16 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 	@Override
 	public void insertEdge(E v1, E v2, int peso){
 		if(!existEdge(v1, v2)){
-			Vertex<E> v = new Vertex<E>(v2);
-			Node<E> nuevo = new Node<>(v, peso);
+			Vertex<E> v_2 = new Vertex<E>(v2);
+			Node<E> nuevo = new Node<>(v_2, peso);
 			
-			if(graph[0] == null){
-				graph[0] = nuevo;
+			Vertex<E> v = new Vertex<E>(v1);
+			if(graph[v.getLocation()] == null){
+				graph[v.getLocation()] = nuevo;
 				insertEdge(v2, v1,peso);				
 			}
 			else{
-				Node<E> actual = graph[0];
+				Node<E> actual = graph[v.getLocation()];
 				
 				while(actual.getNext() != null)
 				{ 
@@ -51,14 +54,15 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 	}
 	@Override
 	public void deleteEdge(E v1, E v2){
+		Vertex<E> v = new Vertex<E>(v1);
 		if(existEdge(v1, v2)){
-			if(graph[0].getVertex() == v2){
-				graph[0] = graph[0].getNext();
+			if(graph[v.getLocation()].getVertex() == v2){
+				graph[v.getLocation()] = graph[0].getNext();
 				deleteEdge(v2,v1);
 				return;
 			}
-			Node<E> actual = graph[0].getNext();
-			Node<E> anterior = graph[0];
+			Node<E> actual = graph[v.getLocation()].getNext();
+			Node<E> anterior = graph[v.getLocation()];
 			
 			while(actual != null){
 				if(actual.getVertex() == v2){
@@ -93,13 +97,15 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 	}
 	
 	public boolean hasAdjacent(E v){
-		if(graph[0] == null) 
+		Vertex<E> v1 = new Vertex<E>(v);
+		if(graph[v1.getLocation()] == null) 
 			return false;
 		return true;
 	}
 	
 	public Node<E> getFirstAdy(E v){
-		return graph[0];
+		Vertex<E> v1 = new Vertex<E>(v);
+		return graph[v1.getLocation()];
 	}
 	
 	public Node<E> getNextAdy(Node<E> anteriorAd){
