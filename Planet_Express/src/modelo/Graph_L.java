@@ -1,7 +1,7 @@
 package modelo;
 
-public class Graph_L<E,T> implements IGraph<E, T> {
-	private Node<E> graph[];
+public class Graph_L<V,E> implements IGraph<V, E> {
+	private Node<V> graph[];
 	private int numVertex;
 	
 	@SuppressWarnings("unchecked")
@@ -16,9 +16,9 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 	}
 	
 	@Override
-	public boolean existEdge(E v1, E v2){
-		Vertex<E> v = new Vertex<E>(v1);
-		Node<E> actual = graph[v.getLocation()];
+	public boolean existEdge(V v1, V v2){
+		Vertex<V> v = new Vertex<V>(v1);
+		Node<V> actual = graph[v.getLocation()];
 		
 		while(actual != null){
 			if(actual.getVertex() == v2) {
@@ -30,18 +30,18 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 	}
 	
 	@Override
-	public void insertEdge(E v1, E v2, int peso){
+	public void insertEdge(V v1, V v2, int peso){
 		if(!existEdge(v1, v2)){
-			Vertex<E> v_2 = new Vertex<E>(v2);
-			Node<E> nuevo = new Node<>(v_2, peso);
+			Vertex<V> v_2 = new Vertex<V>(v2);
+			Node<V> nuevo = new Node<>(v_2, peso);
 			
-			Vertex<E> v = new Vertex<E>(v1);
+			Vertex<V> v = new Vertex<V>(v1);
 			if(graph[v.getLocation()] == null){
 				graph[v.getLocation()] = nuevo;
 				insertEdge(v2, v1,peso);				
 			}
 			else{
-				Node<E> actual = graph[v.getLocation()];
+				Node<V> actual = graph[v.getLocation()];
 				
 				while(actual.getNext() != null)
 				{ 
@@ -53,16 +53,16 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 		}		
 	}
 	@Override
-	public void deleteEdge(E v1, E v2){
-		Vertex<E> v = new Vertex<E>(v1);
+	public void deleteEdge(V v1, V v2){
+		Vertex<V> v = new Vertex<V>(v1);
 		if(existEdge(v1, v2)){
 			if(graph[v.getLocation()].getVertex() == v2){
 				graph[v.getLocation()] = graph[0].getNext();
 				deleteEdge(v2,v1);
 				return;
 			}
-			Node<E> actual = graph[v.getLocation()].getNext();
-			Node<E> anterior = graph[v.getLocation()];
+			Node<V> actual = graph[v.getLocation()].getNext();
+			Node<V> anterior = graph[v.getLocation()];
 			
 			while(actual != null){
 				if(actual.getVertex() == v2){
@@ -78,7 +78,7 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 	
 	public void showGraph(){
 		for( int i = 0; i < graph.length; i++){
-			Node<E> actual = graph[i];
+			Node<V> actual = graph[i];
 			
 			while(actual != null){
 				System.out.printf("%d -> " , i);
@@ -96,26 +96,26 @@ public class Graph_L<E,T> implements IGraph<E, T> {
 		}
 	}
 	
-	public boolean hasAdjacent(E v){
-		Vertex<E> v1 = new Vertex<E>(v);
+	public boolean hasAdjacent(V v){
+		Vertex<V> v1 = new Vertex<V>(v);
 		if(graph[v1.getLocation()] == null) 
 			return false;
 		return true;
 	}
 	
-	public Node<E> getFirstAdy(E v){
-		Vertex<E> v1 = new Vertex<E>(v);
+	public Node<V> getFirstAdy(V v){
+		Vertex<V> v1 = new Vertex<V>(v);
 		return graph[v1.getLocation()];
 	}
 	
-	public Node<E> getNextAdy(Node<E> anteriorAd){
+	public Node<V> getNextAdy(Node<V> anteriorAd){
 		return anteriorAd.getNext();
 	}
 
 	@Override
-	public int getWeightEdge(E v1, E v2) {
+	public int getWeightEdge(V v1, V v2) {
 		if(existEdge(v1, v2)){
-			Vertex<E> v = new Vertex<E>(v1);
+			Vertex<V> v = new Vertex<V>(v1);
 			return graph[v.getLocation()].getWeightEdge();
 		}
 		else{

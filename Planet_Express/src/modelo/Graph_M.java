@@ -1,6 +1,6 @@
 package modelo;
 
-public class Graph_M<E,T> implements IGraph<E, T> {
+public class Graph_M<V,E> implements IGraph<V, E> {
 	private final int NUM_VERTEX;
 	private int graph[][];
 	
@@ -17,9 +17,9 @@ public class Graph_M<E,T> implements IGraph<E, T> {
 	}
 	
 	@Override
-	public void insertEdge(E v1, E v2, int weightEdge) throws ArrayIndexOutOfBoundsException , IllegalArgumentException{
-		Vertex<E> v_1 = new Vertex<E>(v1);
-		Vertex<E> v_2 = new Vertex<E>(v2);
+	public void insertEdge(V v1, V v2, int weightEdge) throws ArrayIndexOutOfBoundsException , IllegalArgumentException{
+		Vertex<V> v_1 = new Vertex<V>(v1);
+		Vertex<V> v_2 = new Vertex<V>(v2);
 		if(weightEdge == 0){
 			throw new IllegalArgumentException();
 		}
@@ -28,25 +28,25 @@ public class Graph_M<E,T> implements IGraph<E, T> {
 	}
 	
 	@Override
-	public boolean existEdge(E v1, E v2) throws ArrayIndexOutOfBoundsException{
-		Vertex<E> v_1 = new Vertex<E>(v1);
-		Vertex<E> v_2 = new Vertex<E>(v2);
+	public boolean existEdge(V v1, V v2) throws ArrayIndexOutOfBoundsException{
+		Vertex<V> v_1 = new Vertex<V>(v1);
+		Vertex<V> v_2 = new Vertex<V>(v2);
 		
 		return (graph[v_1.getLocation()][v_2.getLocation()] != 0);
 	}
 	
 	@Override
-	public int getWeightEdge(E v1, E v2)throws ArrayIndexOutOfBoundsException{
-		Vertex<E> v_1 = new Vertex<E>(v1);
-		Vertex<E> v_2 = new Vertex<E>(v2);
+	public int getWeightEdge(V v1, V v2)throws ArrayIndexOutOfBoundsException{
+		Vertex<V> v_1 = new Vertex<V>(v1);
+		Vertex<V> v_2 = new Vertex<V>(v2);
 		
 		return graph[v_1.getLocation()][v_2.getLocation()];
 	}
 	
 	@Override
-	public void deleteEdge(E v1, E v2) throws ArrayIndexOutOfBoundsException, IllegalArgumentException{
-		Vertex<E> v_1 = new Vertex<E>(v1);
-		Vertex<E> v_2 = new Vertex<E>(v2);
+	public void deleteEdge(V v1, V v2) throws ArrayIndexOutOfBoundsException, IllegalArgumentException{
+		Vertex<V> v_1 = new Vertex<V>(v1);
+		Vertex<V> v_2 = new Vertex<V>(v2);
 		
 		if(graph[v_1.getLocation()][v_2.getLocation()] == 0){
 			throw new IllegalArgumentException("La arista No existe");
@@ -84,11 +84,11 @@ public class Graph_M<E,T> implements IGraph<E, T> {
 	}
 	
 
-	public boolean hasAdjacent(E v) throws ArrayIndexOutOfBoundsException{
+	public boolean hasAdjacent(V v) throws ArrayIndexOutOfBoundsException{
 		int vActual = 0;
 		boolean existeLista = false;
 		
-		Vertex<E> v_1 = new Vertex<E>(v);
+		Vertex<V> v_1 = new Vertex<V>(v);
 		
 		while(vActual < this.NUM_VERTEX && !existeLista){
 			if(graph[v_1.getLocation()][vActual] != 0){
@@ -103,11 +103,11 @@ public class Graph_M<E,T> implements IGraph<E, T> {
 	}
 	
 
-	public int getFirstAdy(E v) throws ArrayIndexOutOfBoundsException, UnsupportedOperationException{
+	public int getFirstAdy(V v) throws ArrayIndexOutOfBoundsException, UnsupportedOperationException{
 		int adyacente = -1;
 		int vActual = 0;
 		boolean existeLista = false;
-		Vertex<E> v_1 = new Vertex<E>(v);
+		Vertex<V> v_1 = new Vertex<V>(v);
 		
 		while(vActual < this.NUM_VERTEX && !existeLista){
 			if(graph[v_1.getLocation()][vActual] == 0){
@@ -124,9 +124,9 @@ public class Graph_M<E,T> implements IGraph<E, T> {
 		return adyacente;		
 	}
 	
-	public int nextAdj(E v, E before) throws ArrayIndexOutOfBoundsException, UnsupportedOperationException{
-		Vertex<E> v_1 = new Vertex<E>(v);
-		Vertex<E> v_2 = new Vertex<E>(before);
+	public int nextAdj(V v, V before) throws ArrayIndexOutOfBoundsException, UnsupportedOperationException{
+		Vertex<V> v_1 = new Vertex<V>(v);
+		Vertex<V> v_2 = new Vertex<V>(before);
 		
 		int adyacente = 0;
 		int vActual = v_2.getLocation() + 1;

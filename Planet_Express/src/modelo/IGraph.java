@@ -1,11 +1,11 @@
 package modelo;
 
-public interface IGraph<E,T> {
+public interface IGraph<V,E> {
 	
-	public void insertEdge(E v1, E v2, int weight);
-	public boolean existEdge(E v1, E v2);
-	public int getWeightEdge(E v1, E v2);
-	public void deleteEdge(E v1, E v2);
+	public void insertEdge(V v1, V v2, int weight);
+	public boolean existEdge(V v1, V v2);
+	public int getWeightEdge(V v1, V v2);
+	public void deleteEdge(V v1, V v2);
 	public void releaseGraph();
 
 }
