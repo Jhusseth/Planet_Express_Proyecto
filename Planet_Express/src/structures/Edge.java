@@ -1,4 +1,4 @@
-package modelo;
+package structures;
 
 public class Edge<E> implements Comparable<Edge<E>> {
 	

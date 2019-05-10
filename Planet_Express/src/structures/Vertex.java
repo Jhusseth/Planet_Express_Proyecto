@@ -1,4 +1,4 @@
-package modelo;
+package structures;
 
 public class Vertex<E> implements Comparable<Vertex<E>> {
 	

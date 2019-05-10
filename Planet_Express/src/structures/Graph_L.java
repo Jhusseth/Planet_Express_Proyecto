@@ -1,4 +1,4 @@
-package modelo;
+package structures;
 
 public class Graph_L<V,E> implements IGraph<V, E> {
 	private Node<V> graph[];

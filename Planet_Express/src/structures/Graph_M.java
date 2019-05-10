@@ -1,4 +1,4 @@
-package modelo;
+package structures;
 
 public class Graph_M<V,E> implements IGraph<V, E> {
 	private final int NUM_VERTEX;

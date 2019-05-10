@@ -1,4 +1,4 @@
-package modelo;
+package structures;
 
 public interface IGraph<V,E> {
 	
