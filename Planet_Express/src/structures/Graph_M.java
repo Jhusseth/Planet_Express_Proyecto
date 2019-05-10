@@ -52,7 +52,7 @@ public class Graph_M<V,E> implements IGraph<V, E> {
 			throw new IllegalArgumentException("La arista No existe");
 		}
 		
-		int peso = graph[v_1.getLocation()][v_2.getLocation()];
+//		int peso = graph[v_1.getLocation()][v_2.getLocation()];
 		graph[v_1.getLocation()][v_2.getLocation()] = 0;
 		graph[v_2.getLocation()][v_1.getLocation()] = 0;
 		
