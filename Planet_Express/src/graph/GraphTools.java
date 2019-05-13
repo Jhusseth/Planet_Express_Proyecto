@@ -119,7 +119,6 @@ public class GraphTools<T> implements IGraphTools<T> {
 
 	@Override
 	public int[][] FloydWarshall(Graph<T> g) {
-		// TODO Auto-generated method stub
 		int INFINITE = Integer.MAX_VALUE;
 		int[][] distances = new int[g.getQuantity()][g.getQuantity()];
 		int i, j, k;
