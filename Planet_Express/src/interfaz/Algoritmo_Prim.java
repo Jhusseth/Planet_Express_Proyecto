@@ -53,7 +53,7 @@ public class Algoritmo_Prim {
        p.paint(p.getGraphics());
        p.R_repaint(top,Matrices);
        Matrices.createInTree(top);
-       Matrices.setInTree(0, originNode);
+       Matrices.setInTree(0,originNode);
        
        do{
            this.minorEdge = this.HigherEdge;
