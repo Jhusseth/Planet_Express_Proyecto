@@ -87,7 +87,7 @@ public class City extends JPanel implements MouseListener{
 				clickOnLefttNode(xxx, yyy );            	          
 				if(nn==2){	              
 					nn=0;	               
-					Algoritmo_Dijkstra Dijkstra = new Algoritmo_Dijkstra(tress,top,permanet, nodeFinal,this);	              				
+					Paint_Dijkstra Dijkstra = new Paint_Dijkstra(tress,top,permanet, nodeFinal,this);	              				
 					Dijkstra.dijkstra();	              				
 					main.accumulated(""+Dijkstra.getAcumulado());	               	           			
 				}	       		
@@ -233,7 +233,7 @@ public class City extends JPanel implements MouseListener{
 		if(top>=2){	         
 			permanet = enterOriginNode("Ingrese ID Origen..","ID Origen No existe",top);         	         
 			nodeFinal =  enterOriginNode("Ingrese ID Fin..","ID fin No existe",top);	           
-			Algoritmo_Dijkstra Dijkstra = new Algoritmo_Dijkstra(tress,top,permanet,nodeFinal,this);	            
+			Paint_Dijkstra Dijkstra = new Paint_Dijkstra(tress,top,permanet,nodeFinal,this);	            
 			Dijkstra.dijkstra();	
 		}
 		else JOptionPane.showMessageDialog(null,"Se deben de crear mas nodos ... ");
@@ -242,7 +242,7 @@ public class City extends JPanel implements MouseListener{
 	public void PintarPrim(){
 		
 		permanet = enterOriginNode("Ingrese ID Origen..","ID Origen No existe",top);
-		Algoritmo_Prim prim = new Algoritmo_Prim(tress, permanet, top, EdgeHigher, this);
+		Paint_Prim prim = new Paint_Prim(tress, permanet, top, EdgeHigher, this);
 		prim.prim();
 		main.accumulated(""+ prim.getAccumulated());
 		

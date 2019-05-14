@@ -9,7 +9,7 @@ import java.awt.Color;
  *
  */
 
-public class Algoritmo_Prim {
+public class Paint_Prim {
     
     private int accumulated;
    private int minorEdge;
@@ -27,7 +27,7 @@ public class Algoritmo_Prim {
    public City p;
    
    
-   public Algoritmo_Prim(Matrices tree ,int origin, int top ,int higherEdge,City pr ){
+   public Paint_Prim(Matrices tree ,int origin, int top ,int higherEdge,City pr ){
        this.accumulated = 0;
        this.minorEdge = 0;
        this.end = 0;

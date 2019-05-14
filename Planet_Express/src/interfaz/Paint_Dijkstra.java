@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  */
 
-public class Algoritmo_Dijkstra {
+public class Paint_Dijkstra {
    private  Matrices trees;
    private int subTop;
    private Flight auxi=null;
@@ -27,7 +27,7 @@ public class Algoritmo_Dijkstra {
    
    public City p;
    
-    public Algoritmo_Dijkstra (Matrices tress, int top,int permanent, int nodeFinal, City pr ){
+    public Paint_Dijkstra (Matrices tress, int top,int permanent, int nodeFinal, City pr ){
         this.trees = tress;        
         this.tope = top;
         this.node= new Flight[top]; 
