@@ -1,6 +1,6 @@
 
 package interfaz;
-import interfaz.City;
+import interfaz.World_Map;
 
 import java.awt.Color;
 /**
@@ -24,10 +24,10 @@ public class Paint_Prim {
    private int top;
    private  int  originNode;
    
-   public City p;
+   public World_Map p;
    
    
-   public Paint_Prim(Matrices tree ,int origin, int top ,int higherEdge,City pr ){
+   public Paint_Prim(Matrices tree ,int origin, int top ,int higherEdge,World_Map pr ){
        this.accumulated = 0;
        this.minorEdge = 0;
        this.end = 0;

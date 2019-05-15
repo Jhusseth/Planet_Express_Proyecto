@@ -1,8 +1,8 @@
 package interfaz;
 
 
-import interfaz.City;
-import modelo.Flight;
+import interfaz.World_Map;
+import modelo.Airport;
 
 import java.awt.Color;
 
@@ -17,20 +17,20 @@ import javax.swing.JOptionPane;
 public class Paint_Dijkstra {
    private  Matrices trees;
    private int subTop;
-   private Flight auxi=null;
+   private Airport auxi=null;
    private int auxAccumulated;
    private int subAccumulated;
-   private Flight node[]; 
+   private Airport node[]; 
    private int tope;
    private int permanent;     
    private int finalNode; 
    
-   public City p;
+   public World_Map p;
    
-    public Paint_Dijkstra (Matrices tress, int top,int permanent, int nodeFinal, City pr ){
+    public Paint_Dijkstra (Matrices tress, int top,int permanent, int nodeFinal, World_Map pr ){
         this.trees = tress;        
         this.tope = top;
-        this.node= new Flight[top]; 
+        this.node= new Airport[top]; 
         this.permanent = permanent;
         this.finalNode = nodeFinal;
         p = pr;
@@ -43,7 +43,7 @@ public class Paint_Dijkstra {
         
     public void dijkstra(){ 
          for (int i = 0; i < tope; i++)
-                    node[i]= new Flight(trees.getName(i)); 
+                    node[i]= new Airport(trees.getName(i)); 
          
         if(permanent != finalNode){
              p.paint(p.getGraphics());
@@ -65,13 +65,13 @@ public class Paint_Dijkstra {
                             node[j].setAccumulated(subAccumulated);
                             node[j].setRegistered(true);
                             node[j].setClient(j);
-                            node[j].setPredecesor(node[permanent]);
+                            node[j].setPredeccesor(node[permanent]);
                         }
                         else if( node[j].isRegistered()==false){
                             node[j].setAccumulated(subAccumulated);
                             node[j].setRegistered(true);
                             node[j].setClient(j);
-                            node[j].setPredecesor(node[permanent]); 
+                            node[j].setPredeccesor(node[permanent]); 
                        }
                  }
               }
@@ -87,12 +87,12 @@ public class Paint_Dijkstra {
           }
           while(subTop<tope+1);                   
             auxi= node[finalNode];            
-            if(auxi.getPredecesor() == null )            
+            if(auxi.getPredeccesor() == null )            
             	JOptionPane.showMessageDialog(null,"No se Pudo LLegar Al Nodo "+finalNode);                   
-            while(auxi.getPredecesor() != null){                        
-            	Paint.paintRoute(p.getGraphics(), trees.getCordeX(auxi.getClient()), trees.getCordeY(auxi.getClient()), trees.getCordeX(auxi.getPredecesor().getClient()), trees.getCordeY(auxi.getPredecesor().getClient()),Color.GREEN);             
+            while(auxi.getPredeccesor() != null){                        
+            	Paint.paintRoute(p.getGraphics(), trees.getCordeX(auxi.getClient()), trees.getCordeY(auxi.getClient()), trees.getCordeX(auxi.getPredeccesor().getClient()), trees.getCordeY(auxi.getPredeccesor().getClient()),Color.GREEN);             
             	Paint.clickNode(p.getGraphics(), trees.getCordeX(auxi.getClient()), trees.getCordeY(auxi.getClient()), null,Color.GREEN);             
-            	auxi=auxi.getPredecesor();                       
+            	auxi=auxi.getPredeccesor();                       
             }          
             Paint.clickNode(p.getGraphics(), trees.getCordeX(finalNode), trees.getCordeY(finalNode), null,Color.GREEN);           
         }     

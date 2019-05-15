@@ -1,19 +1,48 @@
 package interfaz;
 
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+
 import modelo.Location;
 
-public class Main {
+public class Main extends JFrame{
 	
-	private City city;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private World_Map city;
 	private Options_Panel op;
 	
+	private Data_Panel data;
+	
 	public Main(){
-		city = new City(this);
+		city = new World_Map(this);
 		op = new Options_Panel(this);
+		
+		setLayout(new BorderLayout());
+		setTitle("Planet_Express");
+		setSize(901,622);
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		
+		city = new World_Map(this);		
+		
+		data = new Data_Panel(this);
+		
+		
+		add(city,BorderLayout.CENTER);
+		add(data,BorderLayout.WEST);
+		
+		add(data,BorderLayout.EAST);
+		
 	}
 
 	public static void main(String[] args) {
-		
+		Main window =  new Main();
+		window.setVisible(true);
 
 	}
 
@@ -52,12 +81,12 @@ public class Main {
 		
 	}
 
-	public void accumulated(String string) {
-		
+	public void accumulated(String text) {
+		op.setAccumulated(text);
 	}
 
 	public void Dijkstra() {
-		// TODO Auto-generated method stub
+		city.paintDijkstra();
 		
 	}
 
@@ -72,8 +101,7 @@ public class Main {
 	}
 
 	public void Prim() {
-		// TODO Auto-generated method stub
-		
+		city.PaintPrim();
 	}
 
 	public void upload() {
@@ -92,8 +120,7 @@ public class Main {
 	}
 
 	public void release() {
-		// TODO Auto-generated method stub
-		
+		city.R_paint();
 	}
 
 }

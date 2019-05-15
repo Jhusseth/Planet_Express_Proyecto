@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 import javax.swing.border.LineBorder;
 
-public class City extends JPanel implements MouseListener{
+public class World_Map extends JPanel implements MouseListener{
 	
 	private static final long serialVersionUID = 1L;
 	public Main main;
@@ -27,7 +27,7 @@ public class City extends JPanel implements MouseListener{
 	 
 	private int EdgeHigher;
 	
-	public City(Main m){
+	public World_Map(Main m){
 		setBorder(new LineBorder(new Color(255, 0, 0), 2));
 		setBackground(Color.WHITE);
 		main =m;
@@ -229,7 +229,7 @@ public class City extends JPanel implements MouseListener{
 		}
 	}
 	
-	public void pintarDijkstra(){ 
+	public void paintDijkstra(){ 
 		if(top>=2){	         
 			permanet = enterOriginNode("Ingrese ID Origen..","ID Origen No existe",top);         	         
 			nodeFinal =  enterOriginNode("Ingrese ID Fin..","ID fin No existe",top);	           
@@ -239,7 +239,7 @@ public class City extends JPanel implements MouseListener{
 		else JOptionPane.showMessageDialog(null,"Se deben de crear mas nodos ... ");
 	}
 	
-	public void PintarPrim(){
+	public void PaintPrim(){
 		
 		permanet = enterOriginNode("Ingrese ID Origen..","ID Origen No existe",top);
 		Paint_Prim prim = new Paint_Prim(tress, permanet, top, EdgeHigher, this);
