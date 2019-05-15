@@ -1,5 +1,5 @@
 package modelo;
-
+//veremos si va
 public class Route {
 	
 	private Location start_location;
