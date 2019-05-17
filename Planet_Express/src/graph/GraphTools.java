@@ -144,17 +144,17 @@ public class GraphTools<T> implements IGraphTools<T> {
 	}
 
 	@Override
-	public void BFS(Graph<T> G, Node<T> ref) {
+	public void BFS(Graph<T> g, Node<T> ref) {
 		
-		G.getNodes().get(ref.getElement()).setColor(Node.GRAY);
-		G.getNodes().get(ref.getElement()).setDistance(0);
+		g.getNodes().get(ref.getElement()).setColor(Node.GRAY);
+		g.getNodes().get(ref.getElement()).setDistance(0);
 		Queue<Node<T>> Q = new LinkedList<Node<T>>();
 		Q.add(ref);
 		while (!Q.isEmpty()) {
-			Node<T> u = G.getNodes().get(Q.poll().getElement());
+			Node<T> u = g.getNodes().get(Q.poll().getElement());
 			for (int i = 0; i < u.getAdjacencys().size(); i++) {
 				Adjacency<T> h = u.getAdjacencys().get(i);
-				Node<T> v = G.getNodes().get(h.getAdjacent().getElement());
+				Node<T> v = g.getNodes().get(h.getAdjacent().getElement());
 				if (v.getColor() == Node.WHITE) {
 					v.setColor(Node.GRAY);
 					v.setDistance(u.getDistance() + 1);

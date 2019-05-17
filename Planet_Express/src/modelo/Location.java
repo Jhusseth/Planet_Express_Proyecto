@@ -4,6 +4,8 @@ public class Location {
 	
 	private int id;
 	private String name;
+	
+	private Airport airport;
 	public String getName() {
 		return name;
 	}
