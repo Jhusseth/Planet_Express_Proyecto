@@ -65,9 +65,23 @@ public class Graph<T> implements IGraph<T> {
 	}
 
 	@Override
-	public void deleteEdge(Edge<T> e) {
-		if (edges.contains(e))
+	public boolean deleteEdge(Edge<T> e) {
+		if (edges.contains(e)){
 			edges.remove(e);
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean deleteVertex(T vertex){
+		if (elements.containsKey(vertex) && nodes.containsKey(vertex)) {
+			elements.remove(vertex, quantity);
+			nodes.remove(vertex, new Node<T>(vertex));
+			quantity--;
+			return true;
+		}
+		return false;
 	}
 
 	@Override

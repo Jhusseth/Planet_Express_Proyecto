@@ -5,7 +5,9 @@ public interface IGraph<T> {
 
 	public void addEdge(T vInitial, T vFinal, int weight);
 
-	public void deleteEdge(Edge<T> e);
+	public boolean deleteEdge(Edge<T> e);
+	
+	public boolean  deleteVertex(T e);
 
 	public int[][] getMatrizAdjacency(Graph<T> g);
 

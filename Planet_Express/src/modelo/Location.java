@@ -2,39 +2,27 @@ package modelo;
 
 public class Location {
 	
-	private int id;
-	private String name;
-	
+	private String id;	
 	private Airport airport;
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	private Airport air;
 	
-	public Location(String name, int id, Airport a) {
-		
+	public Location(String id, Airport a) {
 		this.id = id;
-		this.air=a;
+		this.airport=a;
 	}
 
-	public Airport getAir() {
-		return air;
+	public Airport getAirport() {
+		return airport;
 	}
 
-	public void setAir(Airport air) {
-		this.air = air;
+	public void setAirport(Airport air) {
+		this.airport = air;
 	}	
 
-	public int getId() {
+	public String getName() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setName(String id) {
 		this.id = id;
 	}
 	
