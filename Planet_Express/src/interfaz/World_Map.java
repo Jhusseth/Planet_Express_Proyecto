@@ -102,11 +102,11 @@ public class World_Map extends JPanel implements MouseListener{
 						main.addVertex(top);
 						top++;
 					} 	         				
-					else JOptionPane.showMessageDialog(null,"Se ha llegado al Maximo de nodos..");		
+					else JOptionPane.showMessageDialog(null,"The maximum number of nodes has been reached...");		
 				}          			
 				if(n==2 ){	             			
 					n=0; 	             				
-					int  ta = enterTam("Ingrese Distancia (Km)");	             				
+					int  ta = enterTam("Distance Enter (Km)");	             				
 					if(EdgeHigher < ta) EdgeHigher=ta;	            									
 					tress.setAdjacency(id2, id, 1);	            				
 					tress.setAdjacency(id, id2, 1);	             				

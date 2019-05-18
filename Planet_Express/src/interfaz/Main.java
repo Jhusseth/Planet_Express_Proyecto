@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import modelo.Airport;
 import modelo.Location;
 import modelo.Planet_Express;
 
@@ -47,7 +48,10 @@ public class Main extends JFrame{
 
 	public Location initTrip() {
 		
-		return null;
+		Airport ae = new Airport("Francia");
+		Location l1 = new Location("001", ae);
+		
+		return l1;
 	}
 
 	public void addVertex(int top) {
