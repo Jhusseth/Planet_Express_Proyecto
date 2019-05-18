@@ -40,7 +40,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 		buttonsPanel.setBackground(Color.WHITE);
 		add(buttonsPanel,BorderLayout.NORTH);
 		buttonsPanel.setLayout(new GridLayout(5, 1,0, 7));
-		butOrder=new JButton("Order");
+		butOrder=new JButton("Flight");
 		buttonsPanel.add(butOrder);
 		butOrder.setFont(new Font("Kalinga", Font.PLAIN, 11));
 		butOrder.setBackground(Color.WHITE);
@@ -66,7 +66,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 		butDistance.setBackground(Color.WHITE);
 		butDistance.addActionListener(this);
 		butDistance.setActionCommand(SAVE);
-		butUpload=new JButton("Load city");
+		butUpload=new JButton("Load");
 		buttonsPanel.add(butUpload);
 		butUpload.setFont(new Font("Kalinga", Font.PLAIN, 11));
 		butUpload.setBackground(Color.WHITE);
@@ -91,7 +91,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 		
 		panelText.setBackground(Color.WHITE);
 		panelText.setLayout(new BorderLayout());
-		JLabel label = new JLabel("Distancia (km)");
+		JLabel label = new JLabel("Distance (km)");
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setBackground(Color.WHITE);
 		panelText.add(label,BorderLayout.CENTER);
@@ -111,7 +111,6 @@ public class Options_Panel extends JPanel implements ActionListener{
 		panelAux.setBackground(Color.WHITE);
 		ImageIcon img = new ImageIcon("data/pictures/logo.png");
 		JLabel lb = new JLabel(img);
-		lb.setHorizontalAlignment(SwingConstants.TRAILING);
 		lb.setBounds(80, 80, 80, 80);
 		panelAux.add(lb,BorderLayout.CENTER);
 		
