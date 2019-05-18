@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
 
+import com.sun.javafx.geom.Edge;
+
 import graph.Graph;
 
 public class Planet_Express {
@@ -19,24 +21,17 @@ public class Planet_Express {
 
 	private String[] cordeY ;
 	
-	private int QFlights;
-	private int QLocations;
-	
 	
 	public Planet_Express() {
 		gr = new Graph<>(false);
-		QLocations = 0;
-		QLocations = 0;
 	}
 
 	public void addClient(Location f){
 		gr.addVertex(f);
-		QLocations++;
 	}
 	
 	public void addFlight(Location i , Location f, int w){
 		gr.addEdge(i, f, w);
-		QFlights++;
 	}
 	
 	public void save (int[][] matrizA,int[][] matrizI, String[] nombres, int [] cordX, int[] cordY){
@@ -176,7 +171,7 @@ public class Planet_Express {
 	
 	
 	public int QVertex(){
-		return QLocations;
+		return gr.getQuantity();
 	}
 	
 	public Graph<Location> getGraph() {
@@ -220,10 +215,18 @@ public class Planet_Express {
 	}
 
 	public int QEdges(){
-		return QFlights;
+		return gr.getEdges().size();
 	}
 	
 	public void tours (String type){
 		
+	}
+	
+	public boolean deleteClients(Location f){
+		return gr.deleteVertex(f);
+	}
+	
+	public boolean deleteFlight(graph.Edge<Location> e){
+		return gr.deleteEdge(e);
 	}
 }
