@@ -18,8 +18,8 @@ public class Paint {
     }
     
    public static void PaintPoint(Graphics g,int x,int y,String n){
-	   ImageIcon background = new ImageIcon("data/casita.png");
-		g.drawImage(background.getImage(), x, y, 17, 17, null);
+	   ImageIcon background = new ImageIcon("data/pictures/airplane.png");
+		g.drawImage(background.getImage(), x, y, 25, 25, null);
 		 
 	    ((Graphics2D)g).setColor(Color.RED);
 	    Font font =new Font("Monospaced",Font.BOLD, 16);
@@ -33,7 +33,7 @@ public class Paint {
         BasicStroke stroke = new BasicStroke(3);
         ((Graphics2D)g).setStroke(stroke);  
         g.setColor(Color.BLACK);
-       ((Graphics2D)g).drawLine(x1+10, y1+10, x2+10, y2+10);
+       ((Graphics2D)g).drawLine(x1+25, y1+15, x2, y2+15);
        if(x1<=x2)
            xAux=((x2-x1)/2)+x1;       
         if(x1>x2)
@@ -43,7 +43,7 @@ public class Paint {
         if(y1>=y2)
             yAux=((y1-y2)/2)+y2;       
        
-        g.fillOval(xAux-3, yAux-15, 25, 20);
+        g.fillOval(xAux-3, yAux-15, 35, 20);
         
         g.setColor(Color.YELLOW);
         Font font =new Font("Arial Black",15, 15);
@@ -61,10 +61,10 @@ public class Paint {
    public static void clickNode(Graphics g,int x,int y,String n,Color co){
 	   
        ((Graphics2D)g).setColor(co);
-        ((Graphics2D)g).setStroke(new BasicStroke(4));   
-        ((Graphics2D)g).fillOval(x, y, 17, 17);        
+        ((Graphics2D)g).setStroke(new BasicStroke(3));   
+        ((Graphics2D)g).fillOval(x, y, 25, 25);        
         ((Graphics2D)g).setColor(Color.BLACK);
-        ((Graphics2D)g).drawOval(x, y, 17, 17);
+        ((Graphics2D)g).drawOval(x, y, 25, 25);
          
     }
 }

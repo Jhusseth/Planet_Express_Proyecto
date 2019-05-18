@@ -75,6 +75,7 @@ public class World_Map extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent evt) {
+		System.out.println(evt.getX() +" "+ evt.getY());
 		try{
 			
 			int xxx, yyy;   	       
@@ -186,7 +187,7 @@ public class World_Map extends JPanel implements MouseListener{
 	public boolean clickOnRightNode(int xxx,int yyy){ 
 		for (int j = 0; j < top; j++) { 
 	            
-			if((xxx+2) > tress.getCordeX(j) && xxx < (tress.getCordeX(j)+13) && (yyy+2) > tress.getCordeY(j) && yyy<(tress.getCordeY(j)+13) ) {	                                       	               
+			if((xxx+2) > tress.getCordeX(j) && xxx < (tress.getCordeX(j)+20) && (yyy+2) > tress.getCordeY(j) && yyy<(tress.getCordeY(j)+20) ) {	                                       	               
 				if(n==0){	                 					
 					id = j;	                   
 					R_repaint(top,tress);	                  
