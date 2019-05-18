@@ -28,6 +28,7 @@ public class Paint {
     }    
   
   public static void paintTravel(Graphics g, int x1,int y1,int x2,int y2,int tam){
+	  
         int xAux = 0; int yAux = 0; 
         ((Graphics2D)g).setRenderingHint(RenderingHints.KEY_ANTIALIASING,  RenderingHints.VALUE_ANTIALIAS_ON);
         BasicStroke stroke = new BasicStroke(3);
