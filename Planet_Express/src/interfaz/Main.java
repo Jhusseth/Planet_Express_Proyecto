@@ -3,8 +3,10 @@ package interfaz;
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import modelo.Location;
+import modelo.Planet_Express;
 
 public class Main extends JFrame{
 	
@@ -17,26 +19,23 @@ public class Main extends JFrame{
 	
 	private Data_Panel data;
 	
+	private Planet_Express planet;
 	public Main(){
-		city = new World_Map(this);
-		op = new Options_Panel(this);
-		
 		setLayout(new BorderLayout());
 		setTitle("Planet_Express");
 		setSize(901,622);
 		
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
-		
-		city = new World_Map(this);		
-		
+		city = new World_Map(this);
 		data = new Data_Panel(this);
-		
+		op = new Options_Panel(this);
+		planet = new Planet_Express();
 		
 		add(city,BorderLayout.CENTER);
-		add(data,BorderLayout.WEST);
-		
+		add(op,BorderLayout.WEST);
 		add(data,BorderLayout.EAST);
+		
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		
 	}
 
@@ -44,16 +43,6 @@ public class Main extends JFrame{
 		Main window =  new Main();
 		window.setVisible(true);
 
-	}
-
-	public int getWidth() {
-		
-		return 0;
-	}
-
-	public int getHeight() {
-		
-		return 0;
 	}
 
 	public Location initTrip() {
@@ -110,8 +99,8 @@ public class Main extends JFrame{
 	}
 
 	public void save() {
-		// TODO Auto-generated method stub
-		
+		planet.save(city.getTrees().getAdjacency(), city.getTrees().getCoefficient(), city.getTrees().getName(), city.getTrees().getCordeX(), city.getTrees().getCordeY());
+	    JOptionPane.showMessageDialog(this, "It was saved correctly");
 	}
 
 	public void showFrame() {

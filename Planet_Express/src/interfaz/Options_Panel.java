@@ -101,7 +101,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 		JPanel panelAux = new JPanel();
 		panelAux.setLayout(new GridLayout(2,1));
 		
-		JLabel domi = new JLabel("© JS Domicilies ©");
+		JLabel domi = new JLabel("© Planet_Express ©");
 		domi.setVerticalAlignment(SwingConstants.BOTTOM);
 		domi.setHorizontalAlignment(SwingConstants.CENTER);
 		panelAux.add(domi,BorderLayout.NORTH);
@@ -109,7 +109,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 		
 		
 		panelAux.setBackground(Color.WHITE);
-		ImageIcon img = new ImageIcon("data/logo.png");
+		ImageIcon img = new ImageIcon("data/pictures/logo.png");
 		JLabel lb = new JLabel(img);
 		lb.setHorizontalAlignment(SwingConstants.TRAILING);
 		lb.setBounds(80, 80, 80, 80);

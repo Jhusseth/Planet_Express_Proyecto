@@ -40,7 +40,7 @@ public class World_Map extends JPanel implements MouseListener{
 	@Override
 	public void paint(Graphics g){
 		super.paint(g);
-		ImageIcon fondo = new ImageIcon("data/fondo4.png");
+		ImageIcon fondo = new ImageIcon("data/pictures/fondo.png");
 		g.drawImage(fondo.getImage(), 0, 0, main.getWidth(), main.getHeight(), null);
 		Paint.PaintPoint(this.getGraphics(),tress.getCordeX(0), tress.getCordeY(0),String.valueOf(tress.getName(0)));
 	}
