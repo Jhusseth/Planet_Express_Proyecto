@@ -27,7 +27,7 @@ public class Main extends JFrame{
 	public Main(){
 		setLayout(new BorderLayout());
 		setTitle("Planet_Express");
-		setSize(901,622);
+		setSize(901,470);
 		
 		world = new World_Map(this);
 		data = new Data_Panel(this);
@@ -51,8 +51,12 @@ public class Main extends JFrame{
 
 	public Location initTrip() {
 		
+		int cant = world.getTop();
+		
+		String id = "F" + cant; 
+		
 		Airport ae = new Airport("Francia");
-		Location l1 = new Location("001", ae);
+		Location l1 = new Location(id, ae);
 		
 		return l1;
 	}
