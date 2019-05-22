@@ -143,30 +143,33 @@ public class Options_Panel extends JPanel implements ActionListener{
 		String command = a.getActionCommand();
 		if(command .equals(START)){
 			try{
-				String cliente = JOptionPane.showInputDialog(this, " Inserte:  \n " + "1: Dijkstra      2: Kruskal      3: BFS      4: DFS      5: Prim");
-				if(cliente!=""){
-					if(cliente.equals("1")){
+				String[] lista= {"Dijkstra", "BFS", "DFS", "Prim"};
+				JComboBox<String> combo=new JComboBox<String>(lista);
+				JOptionPane.showMessageDialog(this, combo, "Seleccione una opción", JOptionPane.QUESTION_MESSAGE);
+				String respuesta=(String) combo.getSelectedItem();
+				//if(respuesta==""){
+					if(respuesta.equals(lista[0])){
 						interfaz.Dijkstra();
 					}
 					
-					else if(cliente.equals("3")){
+					else if(respuesta.equals(lista[1])){
 						interfaz.BFS();
 					}
 					
-					else if(cliente.equals("4")){
+					else if(respuesta.equals(lista[2])){
 						interfaz.DFS();;
 					}
-					else if(cliente.equals("5")){
+					else if(respuesta.equals(lista[3])){
 						interfaz.Prim();
 					}
 					else{
 						JOptionPane.showMessageDialog(this, "Solo se puede escribir 1 ò 2");
 					}
 				}
-				else{
-					JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
-				}
-				}
+//				else{
+//					JOptionPane.showMessageDialog(this, "No puede haber campos vacios");
+//				}
+				//}
 				catch(Exception ex){
 //					ex.printStackTrace();
 					JOptionPane.showMessageDialog(this, "Algo fallo");
