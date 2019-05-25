@@ -2,11 +2,13 @@ package interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.GridLayout;
 import java.io.File;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import modelo.Airport;
 import modelo.Location;
@@ -51,29 +53,50 @@ public class Main extends JFrame{
 
 	public Location initTrip() {
 		
-		int cant = world.getTop();
+//		JOptionPane.showMessageDialog(null, "Fill in all the location information of the flight.");
+		Location l = null;
+		try{
+		String name = JOptionPane.showInputDialog("Name of the city");
 		
-		String id = "F" + cant; 
+		if(name.isEmpty()||name == null){
+			initTrip();
+		}
+		else{
+		Airport ae = new Airport(name);
+		l = new Location("Flight: " + world.getTop(), ae);
+		}
+		}
+		catch(Exception e){
+			JOptionPane.showMessageDialog(this, "The flight was not added");
+		}
 		
-		Airport ae = new Airport("Francia");
-		Location l1 = new Location(id, ae);
-		
-		return l1;
+		return l;
 	}
 
 	public void addVertex(int top) {
-		
+		Airport ae = new Airport(world.getTrees().getName(top));
+		Location f = new Location("00"+top,ae);
+		planet.addClient(f);
 		
 	}
 
 	public void addEdge(int id, int id2, int ta) {
+		Airport ae = new Airport(world.getTrees().getName(id));
+		Airport ae1 = new Airport(world.getTrees().getName(id2));
 		
+		Location l1 = new Location("00" + id,ae);
+		Location l2 = new Location("00" + id2,ae1);
+		
+		planet.addClient(l1);
+		planet.addClient(l2);
+		
+		planet.addFlight(l1, l2, ta);
+		planet.addFlight(l2, l1, ta);
 		
 	}
 
 	public void showDates() {
-		
-		
+		data.setData(planet.toString());
 	}
 
 	public void setTravel(int top) {
@@ -138,9 +161,10 @@ public class Main extends JFrame{
 					
 					paint(world.getTrees());
 					world.setTop(m.length-1);
-//					imprimir(m);
 					
-//					System.out.println(graph);
+					for(int i =0;i<planet.getVertex().length;i++){
+						addVertex(i);
+					}
 					
 					for(int i =0;i<planet.getmWeight().length;i++){
 						for(int j =0;j<planet.getmWeight()[0].length;j++){
@@ -148,10 +172,6 @@ public class Main extends JFrame{
 								addEdge(i, j, planet.getmWeight()[i][j]);
 							}
 						}
-					}
-
-					for(int i =0;i<planet.getVertex().length;i++){
-						addVertex(i);
 					}
 				}
 				System.out.println();

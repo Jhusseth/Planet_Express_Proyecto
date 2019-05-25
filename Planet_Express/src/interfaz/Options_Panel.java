@@ -15,11 +15,11 @@ public class Options_Panel extends JPanel implements ActionListener{
 	public final static String START="start";
 	public final static String UPLOAD="upload";
 	public final static String SAVE="save";
-	public final static String ORDER="order";
+//	public final static String ORDER="order";
 	private JButton butStart;
 	private JButton butUpload;
 	private JButton butDistance;
-	private JButton butOrder;
+//	private JButton butOrder;
 	private Main interfaz;
 	
 	public final static String REPAINT="repain";
@@ -42,14 +42,14 @@ public class Options_Panel extends JPanel implements ActionListener{
 		buttonsPanel.setForeground(Color.BLACK);
 		buttonsPanel.setBackground(Color.CYAN);
 		add(buttonsPanel,BorderLayout.NORTH);
-		buttonsPanel.setLayout(new GridLayout(5, 1,0, 7));
-		butOrder=new JButton("Flight");
-		butOrder.setForeground(Color.GREEN);
-		buttonsPanel.add(butOrder);
-		butOrder.setFont(new Font("Kalinga", Font.PLAIN, 11));
-		butOrder.setBackground(Color.BLACK);
-		butOrder.addActionListener(this);
-		butOrder.setActionCommand(ORDER);
+		buttonsPanel.setLayout(new GridLayout(4, 1,0, 7));
+//		butOrder=new JButton("Flight");
+//		butOrder.setForeground(Color.GREEN);
+//		buttonsPanel.add(butOrder);
+//		butOrder.setFont(new Font("Kalinga", Font.PLAIN, 11));
+//		butOrder.setBackground(Color.BLACK);
+//		butOrder.addActionListener(this);
+//		butOrder.setActionCommand(ORDER);
 		butStart=new JButton("Start");
 		butStart.setForeground(Color.GREEN);
 		
@@ -145,7 +145,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 			try{
 				String[] lista= {"Dijkstra", "BFS", "DFS", "Prim"};
 				JComboBox<String> combo=new JComboBox<String>(lista);
-				JOptionPane.showMessageDialog(this, combo, "Seleccione una opción", JOptionPane.QUESTION_MESSAGE);
+				JOptionPane.showMessageDialog(this, combo, "select an option", JOptionPane.QUESTION_MESSAGE);
 				String respuesta=(String) combo.getSelectedItem();
 				//if(respuesta==""){
 					if(respuesta.equals(lista[0])){
@@ -163,7 +163,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 						interfaz.Prim();
 					}
 					else{
-						JOptionPane.showMessageDialog(this, "Solo se puede escribir 1 ò 2");
+						JOptionPane.showMessageDialog(this, "Only 1 or 2 can be written");
 					}
 				}
 //				else{
@@ -172,7 +172,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 				//}
 				catch(Exception ex){
 //					ex.printStackTrace();
-					JOptionPane.showMessageDialog(this, "Algo fallo");
+					JOptionPane.showMessageDialog(this, "Some failure");
 				}
 		}
 		else if(command .equals(UPLOAD)){
@@ -181,9 +181,10 @@ public class Options_Panel extends JPanel implements ActionListener{
 		}else if(command .equals(SAVE)){
 			interfaz.save();
 			
-		}else if(command .equals(ORDER)){
-		 interfaz.showFrame();
 		}
+//			else if(command .equals(ORDER)){
+//		 interfaz.showFrame();
+//		}
 		else if(command .equals(REPAINT)){
 			interfaz.release();
 		}

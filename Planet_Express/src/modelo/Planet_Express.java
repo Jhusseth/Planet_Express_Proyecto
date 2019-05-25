@@ -33,7 +33,7 @@ public class Planet_Express {
 	public void addFlight(Location i , Location f, int w){
 		gr.addEdge(i, f, w);
 	}
-	
+
 	public void save (int[][] matrizA,int[][] matrizI, String[] nombres, int [] cordX, int[] cordY){
 		
 		FileWriter fichero = null;
@@ -228,5 +228,15 @@ public class Planet_Express {
 	
 	public boolean deleteFlight(graph.Edge<Location> e){
 		return gr.deleteEdge(e);
+	}
+	
+	@Override
+	public String toString() {
+		String msj ="";
+		for(int  i =0;i<gr.getEdges().size();i++){
+			msj += gr.getEdges().get(i).getInitialvertex().getAirport().getName() + "-" +gr.getEdges().get(i).getFinalVertex().getAirport().getName()  + "\n";
+//			msj += QVertex() + "\n" ;
+		}
+		return msj;
 	}
 }

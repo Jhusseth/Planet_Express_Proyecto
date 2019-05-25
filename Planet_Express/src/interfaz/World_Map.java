@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 
 import javax.swing.border.LineBorder;
 
+import modelo.Location;
+
 public class World_Map extends JPanel implements MouseListener{
 	
 	private static final long serialVersionUID = 1L;
@@ -46,16 +48,18 @@ public class World_Map extends JPanel implements MouseListener{
 	}
 	
 	 public void R_repaint(int nTop, Matrices ntress){
+		 for (int j = 0; j < nTop; j++){    
+			 Paint.PaintPoint(this.getGraphics(), ntress.getCordeX(j),ntress.getCordeY(j),String.valueOf(ntress.getName(j))); 
+		 }
 		 
 		 for (int j = 0; j < nTop; j++) {  
 			 for (int k = 0; k < nTop; k++) {     
 				 if(ntress.getAdjacency(j, k) == 1)
 					 Paint.paintTravel(this.getGraphics(),ntress.getCordeX(j),ntress.getCordeY(j), ntress.getCordeX(k), ntress.getCordeY(k),ntress.getCoefficient(j, k));
 			 }
-		 } 
-		 for (int j = 0; j < nTop; j++)    
-			 Paint.PaintPoint(this.getGraphics(), ntress.getCordeX(j),ntress.getCordeY(j),String.valueOf(ntress.getName(j))); 
+		 } 	 
 	 }
+		 
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -75,14 +79,15 @@ public class World_Map extends JPanel implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent evt) {
-		System.out.println(evt.getX() +" "+ evt.getY());
+//		System.out.println(evt.getX() +" "+ evt.getY());
 		try{
 			
 			int xxx, yyy;   	       
 			xxx=evt.getX();	      
 			yyy=evt.getY();	 
 			
-			if(main.initTrip().getName()!=null){
+//			if(main.initTrip()!=null){
+			tress.setName(top," ");
 			
 			if(evt.isMetaDown()){	          
 				clickOnLefttNode(xxx, yyy );            	          
@@ -97,10 +102,11 @@ public class World_Map extends JPanel implements MouseListener{
 				if(!clickOnRightNode(xxx,yyy)){ 
 					if(top<50){
 						tress.setCordeX(top,xxx);	              					
-						tress.setCordeY(top,yyy);	              				
-						tress.setName(top, main.initTrip().getName());	            					
+						tress.setCordeY(top,yyy);
+						Location lc = main.initTrip();
+						tress.setName(top,lc.getAirport().getName());	            					
 						Paint.PaintPoint(this.getGraphics(),tress.getCordeX(top), tress.getCordeY(top),String.valueOf(tress.getName(top)));	          					
-						main.addVertex(top);
+//						main.addVertex(top);
 						top++;
 					} 	         				
 					else JOptionPane.showMessageDialog(null,"The maximum number of nodes has been reached...");		
@@ -121,8 +127,8 @@ public class World_Map extends JPanel implements MouseListener{
 					id2=-1;
 				}
 			}
-			}
-			else  JOptionPane.showMessageDialog(null,"Realize un pedido");
+//			}
+//			else  JOptionPane.showMessageDialog(null,"Realize un pedido");
 			main.showDates();
 			main.setTravel(top);
 		}
