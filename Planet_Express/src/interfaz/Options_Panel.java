@@ -22,7 +22,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 //	private JButton butOrder;
 	private Main interfaz;
 	
-	public final static String REPAINT="repain";
+	public final static String REPAINT="repaint";
 	
 	private JTextField accumulated;
 	

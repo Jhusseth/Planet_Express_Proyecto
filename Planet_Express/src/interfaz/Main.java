@@ -101,7 +101,6 @@ public class Main extends JFrame{
 
 	public void setTravel(int top) {
 		
-		
 	}
 
 	public void accumulated(String text) {
@@ -188,11 +187,6 @@ public class Main extends JFrame{
 	public void save() {
 		planet.save(world.getTrees().getAdjacency(), world.getTrees().getCoefficient(), world.getTrees().getName(), world.getTrees().getCordeX(), world.getTrees().getCordeY());
 	    JOptionPane.showMessageDialog(this, "It was saved correctly");
-	}
-
-	public void showFrame() {
-		// TODO Auto-generated method stub
-		
 	}
 
 	public void release() {

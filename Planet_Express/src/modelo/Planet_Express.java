@@ -10,6 +10,7 @@ import java.util.Calendar;
 import com.sun.javafx.geom.Edge;
 
 import graph.Graph;
+import graph.Node;
 
 public class Planet_Express {
 	
@@ -218,7 +219,32 @@ public class Planet_Express {
 		return gr.getEdges().size();
 	}
 	
-	public void tours (String type){
+	public String tours (String type, Location ref){
+		
+		String msj = "";
+		
+		if(type.equals("DFS")){
+			gr.getTools().DFS(gr);
+		}
+		
+		
+		else if(type.equals("BFS")){
+			Node<Location> n = new Node<>(ref);
+			gr.getTools().BFS(gr, n);
+		}
+
+		else if(type.equals("FLOYD")){
+			int[][] m = gr.getTools().FloydWarshall(gr);
+			
+			for(int i =0;i<m.length;i++){
+				for(int j =0;j<m[0].length;j++){
+					msj += m[i][j] + " ";
+				}
+				msj += "\n";
+			}
+		}
+		
+		return msj;
 		
 	}
 	
@@ -233,8 +259,9 @@ public class Planet_Express {
 	@Override
 	public String toString() {
 		String msj ="";
+		int cant =0;
 		for(int  i =0;i<gr.getEdges().size();i++){
-			msj += gr.getEdges().get(i).getInitialvertex().getAirport().getName() + "-" +gr.getEdges().get(i).getFinalVertex().getAirport().getName()  + "\n";
+			msj += cant++ + ") " + gr.getEdges().get(i).getInitialvertex().getAirport().getName() + "-" +gr.getEdges().get(i).getFinalVertex().getAirport().getName()  + "\n";
 //			msj += QVertex() + "\n" ;
 		}
 		return msj;
