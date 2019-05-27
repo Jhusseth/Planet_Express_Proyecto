@@ -99,12 +99,16 @@ public class Main extends JFrame{
 		data.setData(planet.toString());
 	}
 
-	public void setTravel(int top) {
-		
-	}
+//	public void setTravel(int top) {
+//		
+//	}
 
 	public void accumulated(String text) {
 		op.setAccumulated(text);
+	}
+	
+	public void Floyd(){
+		data.setData2(planet.tours("BFS", null));
 	}
 
 	public void Dijkstra() {
@@ -113,13 +117,18 @@ public class Main extends JFrame{
 	}
 
 	public void BFS() {
-		// TODO Auto-generated method stub
+		String flight = JOptionPane.showInputDialog("Name of city");
 		
+		Location l1 = null;
+		if(planet.getGraph().getNodes().contains(flight)){
+			l1 = planet.getGraph().getNodes().get(flight).getElement();
+		}
+		
+		data.setData2(planet.tours("BFS", l1));
 	}
 
 	public void DFS() {
-		// TODO Auto-generated method stub
-		
+		data.setData2(planet.tours("BFS", null));
 	}
 
 	public void Prim() {
@@ -161,10 +170,6 @@ public class Main extends JFrame{
 					paint(world.getTrees());
 					world.setTop(m.length-1);
 					
-					for(int i =0;i<planet.getVertex().length;i++){
-						addVertex(i);
-					}
-					
 					for(int i =0;i<planet.getmWeight().length;i++){
 						for(int j =0;j<planet.getmWeight()[0].length;j++){
 							if(planet.getmWeight()[i][j]!=0){
@@ -172,8 +177,13 @@ public class Main extends JFrame{
 							}
 						}
 					}
+					
+//					for(int i =0;i<planet.getVertex().length;i++){
+//						addVertex(i);
+//					}
+					
+//					world.R_paint();
 				}
-				System.out.println();
 				showDates();
 				
 			}

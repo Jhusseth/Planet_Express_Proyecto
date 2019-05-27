@@ -167,7 +167,7 @@ public class Planet_Express {
 	
 		mWeight =matrizDeCoeficientes;
 		
-		return mWeight;
+		return adjacencyMatriz;
 	}
 	
 	
@@ -224,10 +224,17 @@ public class Planet_Express {
 		String msj = "";
 		if(type.equals("DFS")){
 			gr.getTools().DFS(gr);
+			for(int  i =0;i<gr.getNodes().size();i++){
+				msj += gr.getNodes().get(i).getElement().getAirport().getName() + " ";
+			}
 		}
 		else if(type.equals("BFS")){
 			Node<Location> n = new Node<>(ref);
 			gr.getTools().BFS(gr, n);
+			
+			for(int  i =0;i<gr.getNodes().size();i++){
+				msj += gr.getNodes().get(i).getElement().getAirport().getName() + " ";
+			}
 		}
 
 		else if(type.equals("FLOYD")){

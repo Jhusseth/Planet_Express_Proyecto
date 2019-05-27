@@ -95,7 +95,7 @@ public class World_Map extends JPanel implements MouseListener{
 					nn=0;	               
 					Paint_Dijkstra Dijkstra = new Paint_Dijkstra(tress,top,permanet, nodeFinal,this);	              				
 					Dijkstra.dijkstra();	              				
-					main.accumulated(""+Dijkstra.getAcumulado());	               	           			
+					main.accumulated(""+Dijkstra.getAccumulated());	               	           			
 				}	       		
 			}	       		
 			else{       			
@@ -130,7 +130,7 @@ public class World_Map extends JPanel implements MouseListener{
 //			}
 //			else  JOptionPane.showMessageDialog(null,"Realize un pedido");
 			main.showDates();
-			main.setTravel(top);
+//			main.setTravel(top);
 		}
 		catch(Exception e){
 			e.printStackTrace();
@@ -241,7 +241,8 @@ public class World_Map extends JPanel implements MouseListener{
 			permanet = enterOriginNode("Ingrese ID Origen..","ID Origen No existe",top);         	         
 			nodeFinal =  enterOriginNode("Ingrese ID Fin..","ID fin No existe",top);	           
 			Paint_Dijkstra Dijkstra = new Paint_Dijkstra(tress,top,permanet,nodeFinal,this);	            
-			Dijkstra.dijkstra();	
+			Dijkstra.dijkstra();
+			main.accumulated(""+ Dijkstra.getAccumulated());
 		}
 		else JOptionPane.showMessageDialog(null,"Se deben de crear mas nodos ... ");
 	}

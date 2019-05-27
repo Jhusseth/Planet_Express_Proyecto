@@ -37,7 +37,7 @@ public class Paint_Dijkstra {
         
     }
 
-    public int getAcumulado(){
+    public int getAccumulated(){
         return node[finalNode].getAccumulated(); 
     }
         
