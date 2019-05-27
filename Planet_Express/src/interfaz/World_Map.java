@@ -134,7 +134,7 @@ public class World_Map extends JPanel implements MouseListener{
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,"Realize un pedido");
+			JOptionPane.showMessageDialog(null,"Realice un pedido");
 		}
 	}
 
