@@ -222,12 +222,9 @@ public class Planet_Express {
 	public String tours (String type, Location ref){
 		
 		String msj = "";
-		
 		if(type.equals("DFS")){
 			gr.getTools().DFS(gr);
 		}
-		
-		
 		else if(type.equals("BFS")){
 			Node<Location> n = new Node<>(ref);
 			gr.getTools().BFS(gr, n);
@@ -243,9 +240,7 @@ public class Planet_Express {
 				msj += "\n";
 			}
 		}
-		
-		return msj;
-		
+		return msj;	
 	}
 	
 	public boolean deleteClients(Location f){
