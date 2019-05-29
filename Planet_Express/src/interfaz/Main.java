@@ -29,7 +29,7 @@ public class Main extends JFrame{
 	public Main(){
 		setLayout(new BorderLayout());
 		setTitle("Planet_Express");
-		setSize(901,470);
+		setSize(905,473);
 		
 		world = new World_Map(this);
 		data = new Data_Panel(this);
