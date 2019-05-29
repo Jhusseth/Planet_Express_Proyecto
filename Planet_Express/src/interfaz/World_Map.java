@@ -106,7 +106,7 @@ public class World_Map extends JPanel implements MouseListener{
 						Location lc = main.initTrip();
 						tress.setName(top,lc.getAirport().getName());	            					
 						Paint.PaintPoint(this.getGraphics(),tress.getCordeX(top), tress.getCordeY(top),String.valueOf(tress.getName(top)));	          					
-//						main.addVertex(top);
+						main.addVertex(top);
 						top++;
 					} 	         				
 					else JOptionPane.showMessageDialog(null,"The maximum number of nodes has been reached...");		
@@ -134,7 +134,7 @@ public class World_Map extends JPanel implements MouseListener{
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null,"Realize un pedido");
+			JOptionPane.showMessageDialog(null,"the order was not made");
 		}
 	}
 

@@ -53,7 +53,6 @@ public class Main extends JFrame{
 
 	public Location initTrip() {
 		
-//		JOptionPane.showMessageDialog(null, "Fill in all the location information of the flight.");
 		Location l = null;
 		try{
 		String name = JOptionPane.showInputDialog("Name of the city");
@@ -63,7 +62,7 @@ public class Main extends JFrame{
 		}
 		else{
 		Airport ae = new Airport(name);
-		l = new Location("Flight: " + world.getTop(), ae);
+		l = new Location("00" + world.getTop(), ae);
 		}
 		}
 		catch(Exception e){
@@ -74,24 +73,16 @@ public class Main extends JFrame{
 	}
 
 	public void addVertex(int top) {
-		Airport ae = new Airport(world.getTrees().getName(top));
-		Location f = new Location("00"+top,ae);
-		planet.addClient(f);
 		
+		planet.addClient(top);
 	}
 
 	public void addEdge(int id, int id2, int ta) {
-		Airport ae = new Airport(world.getTrees().getName(id));
-		Airport ae1 = new Airport(world.getTrees().getName(id2));
 		
-		Location l1 = new Location("00" + id,ae);
-		Location l2 = new Location("00" + id2,ae1);
+		planet.addClient(id);
+		planet.addClient(id2);
 		
-		planet.addClient(l1);
-		planet.addClient(l2);
-		
-		planet.addFlight(l1, l2, ta);
-		planet.addFlight(l2, l1, ta);
+		planet.addFlight(id,id2, ta);
 		
 	}
 
@@ -99,16 +90,12 @@ public class Main extends JFrame{
 		data.setData(planet.toString());
 	}
 
-//	public void setTravel(int top) {
-//		
-//	}
-
 	public void accumulated(String text) {
 		op.setAccumulated(text);
 	}
 	
 	public void Floyd(){
-		data.setData2(planet.tours("BFS", null));
+		data.setData2("----- FLOYD-WARSHALL ----" + "\n" + planet.tours("FLOYD", null));
 	}
 
 	public void Dijkstra() {
@@ -116,19 +103,12 @@ public class Main extends JFrame{
 		
 	}
 
-	public void BFS() {
-		String flight = JOptionPane.showInputDialog("Name of city");
-		
-		Location l1 = null;
-		if(planet.getGraph().getNodes().contains(flight)){
-			l1 = planet.getGraph().getNodes().get(flight).getElement();
-		}
-		
-		data.setData2(planet.tours("BFS", l1));
+	public void BFS() {	
+		data.setData2("----- BFS ----" + "\n" +planet.tours("BFS", 0));
 	}
 
 	public void DFS() {
-		data.setData2(planet.tours("BFS", null));
+		data.setData2("----- DFS ----" + "\n" + planet.tours("DFS", null));
 	}
 
 	public void Prim() {
@@ -138,7 +118,7 @@ public class Main extends JFrame{
 	public void upload() {
 		try{
 			JFileChooser fc = new JFileChooser("./data");
-			fc.setDialogTitle("Ciudad");
+			fc.setDialogTitle("Map of flights");
 			int resultado = fc.showOpenDialog(this);
 			if (resultado == JFileChooser.APPROVE_OPTION) {
 				File archivo = fc.getSelectedFile();
@@ -168,6 +148,7 @@ public class Main extends JFrame{
 					world.getTrees().setCoefficient(planet.getmWeight());
 					
 					paint(world.getTrees());
+					
 					world.setTop(m.length-1);
 					
 					for(int i =0;i<planet.getmWeight().length;i++){
@@ -177,12 +158,6 @@ public class Main extends JFrame{
 							}
 						}
 					}
-					
-//					for(int i =0;i<planet.getVertex().length;i++){
-//						addVertex(i);
-//					}
-					
-//					world.R_paint();
 				}
 				showDates();
 				

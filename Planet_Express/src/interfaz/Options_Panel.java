@@ -143,7 +143,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 		String command = a.getActionCommand();
 		if(command .equals(START)){
 			try{
-				String[] lista= {"Dijkstra", "BFS", "DFS", "Prim"};
+				String[] lista= {"Dijkstra", "BFS", "DFS", "Prim", "Floyd"};
 				JComboBox<String> combo=new JComboBox<String>(lista);
 				JOptionPane.showMessageDialog(this, combo, "select an option", JOptionPane.QUESTION_MESSAGE);
 				String respuesta=(String) combo.getSelectedItem();
@@ -162,6 +162,10 @@ public class Options_Panel extends JPanel implements ActionListener{
 					else if(respuesta.equals(lista[3])){
 						interfaz.Prim();
 					}
+					
+					else if(respuesta.equals(lista[4])){
+						interfaz.Floyd();
+					}
 					else{
 						JOptionPane.showMessageDialog(this, "Only 1 or 2 can be written");
 					}
@@ -171,7 +175,7 @@ public class Options_Panel extends JPanel implements ActionListener{
 //				}
 				//}
 				catch(Exception ex){
-//					ex.printStackTrace();
+					ex.printStackTrace();
 					JOptionPane.showMessageDialog(this, "Some failure");
 				}
 		}

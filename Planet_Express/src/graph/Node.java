@@ -3,6 +3,7 @@ package graph;
 import java.util.LinkedList;
 
 public class Node<T> {
+
 	public final static int INFINITE = Integer.MAX_VALUE;
 	public final static char BLACK = 'B';
 	public final static char GRAY = 'G';

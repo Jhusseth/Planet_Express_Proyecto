@@ -15,7 +15,7 @@ import graph.Node;
 public class Planet_Express {
 	
 	private int[][] mWeight;
-	private Graph<Location> gr;
+	private Graph<Integer> gr;
 	
 	private String[] vertex ;
 	private String[] cordeX ;
@@ -24,14 +24,14 @@ public class Planet_Express {
 	
 	
 	public Planet_Express() {
-		gr = new Graph<>(false);
+		gr = new Graph<>(true);
 	}
 
-	public void addClient(Location f){
+	public void addClient(Integer f){		
 		gr.addVertex(f);
 	}
 	
-	public void addFlight(Location i , Location f, int w){
+	public void addFlight(Integer i , Integer f, int w){	
 		gr.addEdge(i, f, w);
 	}
 
@@ -175,11 +175,11 @@ public class Planet_Express {
 		return gr.getQuantity();
 	}
 	
-	public Graph<Location> getGraph() {
+	public Graph<Integer> getGraph() {
 		return gr;
 	}
 
-	public void setGraph(Graph<Location> gr) {
+	public void setGraph(Graph<Integer> gr) {
 		this.gr = gr;
 	}
 
@@ -219,21 +219,22 @@ public class Planet_Express {
 		return gr.getEdges().size();
 	}
 	
-	public String tours (String type, Location ref){
+	public String tours (String type, Integer ref){
 		
 		String msj = "";
 		if(type.equals("DFS")){
 			gr.getTools().DFS(gr);
-			for(int  i =0;i<gr.getNodes().size();i++){
-				msj += gr.getNodes().get(i).getElement().getAirport().getName() + " ";
+			for(int  i =0;i<gr.getElements().size();i++){
+				System.out.println(gr.getQuantity());
+				msj += gr.getNodes().get(i).getElement() + " ";
 			}
 		}
 		else if(type.equals("BFS")){
-			Node<Location> n = new Node<>(ref);
+			Node<Integer> n = new Node<>(ref);
 			gr.getTools().BFS(gr, n);
 			
 			for(int  i =0;i<gr.getNodes().size();i++){
-				msj += gr.getNodes().get(i).getElement().getAirport().getName() + " ";
+				msj += gr.getNodes().get(i).getElement() + " ";
 			}
 		}
 
@@ -250,11 +251,11 @@ public class Planet_Express {
 		return msj;	
 	}
 	
-	public boolean deleteClients(Location f){
+	public boolean deleteClients(Integer f){
 		return gr.deleteVertex(f);
 	}
 	
-	public boolean deleteFlight(graph.Edge<Location> e){
+	public boolean deleteFlight(graph.Edge<Integer> e){
 		return gr.deleteEdge(e);
 	}
 	
@@ -262,8 +263,9 @@ public class Planet_Express {
 	public String toString() {
 		String msj ="";
 		int cant =0;
+		System.out.println(gr.getNodes().size());
 		for(int  i =0;i<gr.getEdges().size();i++){
-			msj += cant++ + ") " + gr.getEdges().get(i).getInitialvertex().getAirport().getName() + "-" +gr.getEdges().get(i).getFinalVertex().getAirport().getName()  + "\n";
+			msj += cant++ + ") " + gr.getEdges().get(i).getInitialvertex() + "-" +gr.getEdges().get(i).getFinalVertex() + "\n";
 //			msj += QVertex() + "\n" ;
 		}
 		return msj;
