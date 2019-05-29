@@ -133,7 +133,7 @@ public class World_Map extends JPanel implements MouseListener{
 //			main.setTravel(top);
 		}
 		catch(Exception e){
-			e.printStackTrace();
+//			e.printStackTrace();
 			JOptionPane.showMessageDialog(null,"the order was not made");
 		}
 	}

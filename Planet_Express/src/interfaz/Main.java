@@ -30,6 +30,8 @@ public class Main extends JFrame{
 		setLayout(new BorderLayout());
 		setTitle("Planet_Express");
 		setSize(905,473);
+		setSize(901,470);
+		setResizable(false);
 		
 		world = new World_Map(this);
 		data = new Data_Panel(this);
