@@ -1,13 +1,6 @@
 package test;
 import static org.junit.Assert.*;
 import org.junit.Test;
-
-import com.sun.javafx.geom.Edge;
-
-import graph.Graph;
-import graph.Node;
-import modelo.Airport;
-import modelo.Location;
 import modelo.Planet_Express;
 
 public class Planet_Express_test {
