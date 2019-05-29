@@ -5,6 +5,7 @@ import org.junit.Test;
 import com.sun.javafx.geom.Edge;
 
 import graph.Graph;
+import graph.Node;
 import modelo.Airport;
 import modelo.Location;
 import modelo.Planet_Express;
@@ -79,6 +80,30 @@ public class Planet_Express_test {
 	@Test
 	public void sceneFour(){
 		stage();
+		String  msj = "";
+		
+		graph.addClient(1);
+		graph.addClient(2);
+		graph.addClient(3);
+		graph.addClient(4);
+		graph.addClient(5);
+		
+		graph.addFlight(1, 3, 10);
+		graph.addFlight(2, 3, 11);
+		graph.addFlight(4, 2, 12);
+		graph.addFlight(5, 4, 13);
+		
+		int[][] m = graph.getGraph().getTools().FloydWarshall(graph.getGraph());
+		
+		for(int i =0;i<m.length;i++){
+			for(int j =0;j<m[0].length;j++){
+				msj += m[i][j] + " ";
+			}
+			msj += "\n";
+		}
+		
+        assertEquals(msj, graph.tours("FLOYD", null)); 		
+		
 	}
 	@Test
 	public void sceneFive(){

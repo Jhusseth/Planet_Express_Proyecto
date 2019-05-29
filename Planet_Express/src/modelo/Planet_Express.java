@@ -226,7 +226,7 @@ public class Planet_Express {
 			gr.getTools().DFS(gr);
 			for(int  i =0;i<gr.getElements().size();i++){
 				System.out.println(gr.getQuantity());
-				msj += gr.getNodes().get(i).getElement() + " ";
+				msj += gr.getNodes().get(i).getElement() + "-->";
 			}
 		}
 		else if(type.equals("BFS")){
@@ -234,7 +234,7 @@ public class Planet_Express {
 			gr.getTools().BFS(gr, n);
 			
 			for(int  i =0;i<gr.getNodes().size();i++){
-				msj += gr.getNodes().get(i).getElement() + " ";
+				msj += gr.getNodes().get(i).getElement() + "-->";
 			}
 		}
 
@@ -266,7 +266,6 @@ public class Planet_Express {
 		System.out.println(gr.getNodes().size());
 		for(int  i =0;i<gr.getEdges().size();i++){
 			msj += cant++ + ") " + gr.getEdges().get(i).getInitialvertex() + "-" +gr.getEdges().get(i).getFinalVertex() + "\n";
-//			msj += QVertex() + "\n" ;
 		}
 		return msj;
 	}
