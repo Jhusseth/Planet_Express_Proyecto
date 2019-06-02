@@ -224,7 +224,6 @@ public class Planet_Express {
 		if(type.equals("DFS")){
 			gr.getTools().DFS(gr);
 			for(int  i =0;i<gr.getElements().size();i++){
-				System.out.println(gr.getQuantity());
 				msj += gr.getNodes().get(i).getElement() + "-->";
 			}
 		}
