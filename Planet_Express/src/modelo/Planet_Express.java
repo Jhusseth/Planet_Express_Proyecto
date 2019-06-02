@@ -19,12 +19,11 @@ public class Planet_Express {
 	
 	private String[] vertex ;
 	private String[] cordeX ;
-
 	private String[] cordeY ;
 	
 	
 	public Planet_Express() {
-		gr = new Graph<>(true);
+		gr = new Graph<>(false);
 	}
 
 	public void addClient(Integer f){		
@@ -263,7 +262,6 @@ public class Planet_Express {
 	public String toString() {
 		String msj ="";
 		int cant =0;
-		System.out.println(gr.getNodes().size());
 		for(int  i =0;i<gr.getEdges().size();i++){
 			msj += cant++ + ") " + gr.getEdges().get(i).getInitialvertex() + "-" +gr.getEdges().get(i).getFinalVertex() + "\n";
 		}
